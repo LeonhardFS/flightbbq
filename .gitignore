@@ -1,6 +1,5 @@
 # ignore cache directories
 cache/
-aircraftData/
 
 # ignore MAC files
 .DS_Store
