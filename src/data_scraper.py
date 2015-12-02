@@ -141,7 +141,7 @@ def get_file_url(year, month):
 	host = 'www.transtats.bts.gov'
 	transtat_url = 'http://www.transtats.bts.gov/DownLoad_Table.asp?' \
 	'Table_ID=236&Has_Group=3&Is_Zipped=0'
-	frequency = 1
+	frequency = month
 
     # setup POST string
 	post = POST.format(year=year, month=month_name[month], frequency=frequency)
@@ -172,9 +172,7 @@ def get_file_url(year, month):
 	return response.getheader('location')
 
 # get the urls where the zipped data is stored
-
-
-def get_file_urls(years=np.arange(1989, 2015), months=np.arange(1, 13)):
+def get_file_urls(cache_path, years=np.arange(1989, 2015), months=np.arange(1, 13)):
     # by default use 25 years, 12 months
 
     urldict = {}
@@ -182,6 +180,7 @@ def get_file_urls(years=np.arange(1989, 2015), months=np.arange(1, 13)):
         for month in months:
             key = '%d%02d' % (year, month)
             urldict[key] = get_file_url(year, month)
+            print(urldict[key])
 
     # store result in json
     url_dict_file = 'url_dict.json'
@@ -190,8 +189,6 @@ def get_file_urls(years=np.arange(1989, 2015), months=np.arange(1, 13)):
 
 # download files
 # dates list of tuples (year, month)
-
-
 def download_zip_files(dates, urldict, cache_path):
 
     print('downloading %d files...' % len(dates))
@@ -201,7 +198,7 @@ def download_zip_files(dates, urldict, cache_path):
     for t in dates:
         print('file %d / %d:' % (cnt, len(dates)))
         cnt += 1
-        key = '%04d%02d' % (t[0], t[1])
+        key = '%d%02d' % (t[0], t[1])
         try:
             url = urldict[key]
             download_file(url, cache_path, key + '.zip')

@@ -27,7 +27,7 @@ def main():
 	url_dict_file = 'url_dict.json'
 	if not file_exists(os.path.join(cache_path, url_dict_file)):
 	    # will retrieve urls for 25 years (change here if necessary)
-	    get_file_urls()
+	    get_file_urls(cache_path)
 	    
 	# read urldict
 	urldict = {}
