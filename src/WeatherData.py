@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[157]:
+# In[4]:
 
 import datetime
 from os import rename
@@ -25,7 +25,7 @@ import json
 import pandas as pd
 
 
-# In[166]:
+# In[5]:
 
 def parseHistoryTable(table):
     temperature = 0 # in degree F
@@ -102,7 +102,7 @@ def getWeather(year, month, day, airportcode):
     return parseHistoryTable(table)
 
 
-# In[175]:
+# In[6]:
 
 year = 2015
 day = 3
@@ -112,7 +112,7 @@ airportcode = 'FRA'
 getWeather(2015, 3, 10, airportcode)
 
 
-# In[176]:
+# In[7]:
 
 # lazy load dictionary
 weatherDict = {}
@@ -126,7 +126,7 @@ if file_exists(weatherFile):
 dfairports = pd.read_csv(os.path.join('..', 'data', 'airports.csv'), header=None)
 
 
-# In[180]:
+# In[29]:
 
 from datetime import timedelta, date
 
@@ -135,7 +135,7 @@ year = 2014
 
 # iterate over all airports
 pos = 1
-for key, item in dfairports.head(4).iterrows():
+for key, item in dfairports.iterrows():
     airport = item.values[0]
     
     print 'processing %s (%d/%d)...' % (airport, pos, dfairports.count())
@@ -147,11 +147,27 @@ for key, item in dfairports.head(4).iterrows():
     delta = datetime.timedelta(days=1)
 
     # iterate over one year to get the data from it
+    rows = []
+    date_keys = []
+    
+    # check if for airport data exists already
+    if airport in weatherDict.keys():
+        rows = weatherDict[airport]
+        date_keys = [el['date'] for el in rows]
+    
     while d <= end_date:
         key = '%04d%02d%02d' % (d.year, d.month, d.day)
-        print 'GET %s' % key
-        weatherDict[key] = dict([('data', getWeather(d.year, d.month, d.day, airport)), ('airport', airport)])
+        
+        # data already requested? --> skip!
+        if not key in date_keys:
+            print 'GET %s' % key
+            rows.append(dict([('data', getWeather(d.year, d.month, d.day, airport)), ('date', key)]))
         d += delta
+    weatherDict[airport] = rows
+    
+    # save current JSON!
+    with open(weatherFile, 'wb') as outfile:
+        json.dump(weatherDict, outfile)
         
 # save JSON!
 with open(weatherFile, 'wb') as outfile:
