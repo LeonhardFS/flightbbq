@@ -161,7 +161,10 @@ for key, item in dfairports.iterrows():
         # data already requested? --> skip!
         if not key in date_keys:
             print 'GET %s' % key
-            rows.append(dict([('data', getWeather(d.year, d.month, d.day, airport)), ('date', key)]))
+            try:
+                rows.append(dict([('data', getWeather(d.year, d.month, d.day, airport)), ('date', key)]))
+            except:
+                print 'error for %s' % key
         d += delta
     weatherDict[airport] = rows
     
