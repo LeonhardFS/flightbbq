@@ -6,3 +6,6 @@ cache/
 
 # ignore ipython notebooks
 .ipynb_checkpoints/
+
+# ignore working files
+working/
