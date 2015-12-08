@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Content 
+	BannerWidthSize = "280"
+	BannerHeightSize = "200"
+	LettersWidth = "16"
+	LettersSpacing = "0"
+	NumOfLines = "4"
+	NumOfLettersInLine = "15"
+	LineSpacing = "4"
+	TextXposition = "22"
+	TextYposition = "45"
+	OptionalBackgroundImage = "img/Sky_plane.swf"
+	OptionalBackgroundColor = "0x080F08"
+	OptionalLink = "http://www.activeden.net"
+	LinkTargetWindow = "_blank"
+	RepeatAnimation = "false"
+	PlayTheSound = "true"
+	>
+	<TextBlock PauseTextAnimation = "8">
+		 <Line>you can upload</Line>
+		 <Line>any background</Line>
+		 <Line>image, jpg, gif</Line>
+		 <Line>png, swf movie.</Line>
+	</TextBlock>
+	<TextBlock PauseTextAnimation = "8">
+		 <Line>you can </Line>
+		 <Line> easily control</Line>
+		 <Line>  the location</Line>
+		 <Line>   of the text.</Line>
+	</TextBlock>
+	<TextBlock PauseTextAnimation = "10">
+		 <Line>you can set</Line>
+		 <Line>custom pause</Line>
+		 <Line>for each text.</Line>
+		 <Line>(10 sec. pause)</Line>
+	</TextBlock>
+	<TextBlock PauseTextAnimation = "1">
+		 <Line>   you can</Line>
+		 <Line> stop the</Line>
+		 <Line>  animation :-)</Line>
+		 <Line> from looping.</Line>
+	</TextBlock>
+</Content>
+
+
+<!-- ---------------- The optional features ---------------- -->
+<!-- OptionalBackgroundImage = "ImageNamePath.jpg" -->
+<!-- OptionalBackgroundColor = "0x000000" -->
+<!-- OptionalLink = "http://www.activeden.net" -->
+<!-- LinkTargetWindow = "_self"  OR  "_blank" -->

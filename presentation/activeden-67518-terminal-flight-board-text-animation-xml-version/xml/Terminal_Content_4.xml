@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Content 
+	BannerWidthSize = "90"
+	BannerHeightSize = "178"
+	LettersWidth = "30"
+	LettersSpacing = "0"
+	NumOfLines = "4"
+	NumOfLettersInLine = "3"
+	LineSpacing = "0"
+	TextXposition = "0"
+	TextYposition = "0"
+	OptionalBackgroundColor = "0x000000"
+	RepeatAnimation = "false"
+	PlayTheSound = "true"
+	>
+	<TextBlock PauseTextAnimation = "1">
+		 <Line>#01</Line>
+		 <Line>#02</Line>
+		 <Line>#03</Line>
+		 <Line>#04</Line>
+	</TextBlock>
+</Content>
+
+
+<!-- ---------------- The optional features ---------------- -->
+<!-- OptionalBackgroundImage = "ImageNamePath.jpg" -->
+<!-- OptionalBackgroundColor = "0x000000" -->
+<!-- OptionalLink = "http://www.activeden.net" -->
+<!-- LinkTargetWindow = "_self"  OR  "_blank" -->
