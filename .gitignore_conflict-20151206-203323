@@ -1,0 +1,11 @@
+# ignore cache directories
+cache/
+
+# ignore MAC files
+.DS_Store
+
+# ignore ipython notebooks
+.ipynb_checkpoints/
+
+# ignore working files
+working/
