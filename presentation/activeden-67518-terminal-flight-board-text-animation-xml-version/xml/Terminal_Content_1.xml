@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Content 
+	BannerWidthSize = "1316"
+	BannerHeightSize = "750"
+	LettersWidth = "30"
+	LettersSpacing = "1"
+	NumOfLines = "6"
+	NumOfLettersInLine = "34"
+	LineSpacing = "1"
+	TextXposition = "100"
+	TextYposition = "100"
+	OptionalBackgroundImage = "img/Bildschirmfoto.png"
+	OptionalBackgroundColor = "0xFFFFFF"
+	RepeatAnimation = "true"
+	PlayTheSound = "true"
+	>
+	<TextBlock PauseTextAnimation = "7">
+		 <Line>08:20 B6906  chicago       in time</Line>
+		 <Line>08:33 AA292  boston        in time</Line>
+		 <Line>08:40 UA398  philadelphia  in time</Line>
+		 <Line>08:40 AA1522 dallas        in time</Line>
+		 <Line>08:50 CA293  vancouver     in time</Line>
+		 <Line>09:05 lh424  munich        in time</Line>
+	</TextBlock>
+	<TextBlock PauseTextAnimation = "7">
+		 <Line>08:20 B6906  chicago       delayed</Line>
+		 <Line>08:33 AA292  boston        delayed</Line>
+		 <Line>08:40 UA398  philadelphia  delayed</Line>
+		 <Line>08:40 AA1522 dallas        delayed</Line>
+		 <Line>08:50 CA293  vancouver     delayed</Line>
+		 <Line>09:05 lh424  munich        delayed</Line>
+	</TextBlock>
+	<TextBlock PauseTextAnimation = "15">
+		 <Line> Just in 2014:</Line>		 
+		 <Line>   </Line>
+		 <Line>   1193705 delayed flights</Line>
+		 <Line>   </Line>
+		 <Line>   69614616 minutes waiting time</Line>
+		 <Line>   (132 years)</Line>
+	</TextBlock>
+</Content>
+
+
+<!-- ---------------- The optional features ---------------- -->
+<!-- OptionalBackgroundImage = "Bildschirmfoto 2015-12-05 um 13.19.45.png" -->
+<!-- OptionalBackgroundColor = "0x000000" -->
+<!-- OptionalLink = "http://www.activeden.net" -->
+<!-- LinkTargetWindow = "_self"  OR  "_blank" -->

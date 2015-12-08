@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Dynamic Terminal Display HTML version</title>
+<!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/ -->
+<script type="text/javascript" src="swfobject.js"></script>
+<style>
+	body{margin: 20px;}
+</style>
+</head>
+	<body>		
+		<strong>HTML Sample </strong><BR>
+		<em>This demonstration shows how to select your XML file directly through the HTML code.</em><BR>
+		<BR>
+		<div id="flashcontent"></div>  
+		<script type="text/javascript">
+			var so = new SWFObject("Dynamic_Terminal_Display_for_html.swf?xmlFilePath=xml/Terminal_Content_1.xml", "preview", "1300", "750", "8");
+			so.addParam("quality", "high");
+			so.addParam("menu", "false");
+			so.addParam("loop", "false");
+			so.addParam("scale", "noscale");
+			so.addParam("allowFullScreen", "true");
+			so.write("flashcontent");
+		</script>
+		<BR>
+		<em>*You can find <strong>step by step</strong> instructions in the included HTML file.</em><BR>
+		<BR>
+
+	</body>
+</html>
