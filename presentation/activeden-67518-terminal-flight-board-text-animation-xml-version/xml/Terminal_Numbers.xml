@@ -15,7 +15,7 @@
 	PlayTheSound = "true"
 	>	
 	<TextBlock PauseTextAnimation = "7">
-		 <Line>in time</Line>
+		 <Line>on time</Line>
 	</TextBlock>
 	<TextBlock PauseTextAnimation = "7">
 		 <Line>delayed</Line>
