@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Content 
+	BannerWidthSize = "180"
+	BannerHeightSize = "178"
+	LettersWidth = "15"
+	LettersSpacing = "0"
+	NumOfLines = "8"
+	NumOfLettersInLine = "12"
+	LineSpacing = "0"
+	TextXposition = "0"
+	TextYposition = "0"
+	OptionalBackgroundColor = "0x000000"
+	RepeatAnimation = "flase"
+	PlayTheSound = "true"
+	>
+	<TextBlock PauseTextAnimation = "1">
+		 <Line>combine</Line>
+		 <Line>multiple</Line>
+		 <Line>movieclips</Line>
+		 <Line>together</Line>
+		 <Line>in the same</Line>
+		 <Line>fla file</Line>
+		 <Line>or</Line>
+		 <Line>html page.</Line>
+	</TextBlock>
+</Content>
+
+
+<!-- ---------------- The optional features ---------------- -->
+<!-- OptionalBackgroundImage = "ImageNamePath.jpg" -->
+<!-- OptionalBackgroundColor = "0x000000" -->
+<!-- OptionalLink = "http://www.activeden.net" -->
+<!-- LinkTargetWindow = "_self"  OR  "_blank" -->
