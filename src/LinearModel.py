@@ -135,7 +135,7 @@ X_test[:, 0:num_numFeatures+1] = X_test_numericals
 
 # stochastic gradient based ridge regression
 #SGD_params = {'alpha': 10.0 ** -np.arange(1,8)}
-SGD_params = {'alpha': 10.0 ** -6}
+SGD_params = {'alpha': 10.0 ** -np.arange(6,8)}
 SGD_model = GridSearchCV(SGDRegressor(random_state = 42, verbose=1, n_iter=10),                          SGD_params, scoring = 'mean_absolute_error', cv = 4) # cross validate 4 times
 
 
