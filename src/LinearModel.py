@@ -26,12 +26,13 @@ from sklearn.linear_model import SGDRegressor
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import mean_absolute_error
 
+modelDict = {}
 
 # In[204]:
 
 # first step is to load the actual data and exclude rows that are unnecessary
 print('loading data...')
-df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=2000)#nrows=None)#uncomment for test purposes 2000)
 
 
 # In[205]:
@@ -90,7 +91,12 @@ originTable = transformToID(categoricalFeat, 'ORIGIN')
 with open('../cache/originTable.json', 'wb') as outfile:
     json.dump(originTable, outfile)
 
-
+modelDict['CARRIER'] = carrierTable
+modelDict['MANUFACTURER'] = mfrTable
+modelDict['DEST'] = destTable
+modelDict['ORIGIN'] = originTable
+with open('../cache/model.json', 'wb') as f:
+    json.dump(modelDict, f)
 # In[210]:
 
 # Encode categorical variables as binary ones
@@ -119,9 +125,10 @@ scaler = StandardScaler()
 scaler.fit(X_train_numericals) # get std/mean from train set
 
 # save scaler to cache (for later prediction)
-with open('../cache/scalerValues.csv', 'wb') as f:
-    f.write('mean: ' + str(list(scaler.mean_)) + '\n')
-    f.write('std : ' + str(list(scaler.std_)) + '\n')
+modelDict['scaler_mean'] = list(scaler.mean_)
+modelDict['scaler_std'] = list(scaler.std_)
+with open('../cache/model.json', 'wb') as f:
+    json.dump(modelDict, f)
 
 X_train_numericals = sparse.csr_matrix(scaler.transform(X_train_numericals)) 
 X_test_numericals = sparse.csr_matrix(scaler.transform(X_test_numericals))
@@ -144,12 +151,15 @@ SGD_model = GridSearchCV(SGDRegressor(random_state = 42, verbose=1, n_iter=10), 
 # train the model, this might take some time...
 SGD_model.fit(X_train, y_train)
 
+modelDict['params'] = SGD_model.best_estimator_.get_params()
+modelDict['coeff'] = list(SGD_model.best_estimator_.coef_)
+modelDict['intercept'] = list(SGD_model.best_estimator_.intercept_)
+
 # save model to file
 print 'saving model'
-with open('../cache/model.csv', 'wb') as f:
-    f.write(str(SGD_model.best_estimator_.get_params()) + '\n')
-    f.write(str(SGD_model.best_estimator_.coef_) + '\n')
-    f.write(str(SGD_model.best_estimator_.intercept_) + '\n')
+with open('../cache/model.json', 'wb') as f:
+    json.dump(modelDict, f)
+
 print SGD_model.best_estimator_.coef_
 
 
@@ -160,6 +170,12 @@ def rmse(y, y_pred):
 
 print 'computing statistics:'
 y_pred = SGD_model.predict(X_test)
-print 'RMSE:' + str(rmse(y_test, y_pred))
-print 'MAS:' + str(mean_absolute_error(y_test, y_pred))
+RMSE = rmse(y_test, y_pred)
+MAS = mean_absolute_error(y_test, y_pred)
+print 'RMSE:' + str(RMSE)
+print 'MAS:' + str(MAS)
 
+modelDict['RMSE'] = RMSE
+modelDict['MAS'] = MAS
+with open('../cache/model.json', 'wb') as f:
+    json.dump(modelDict, f)
