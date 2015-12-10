@@ -21,7 +21,7 @@ import pickle
 print 'loading data...'
 df = pd.read_csv('../cache/linear_model_features.csv')
 
-cols_to_use = list(set(df.columns) - set([u'ARR_DELAY', u'FL_DATE', u'UNIQUE_CARRIER', u'ORIGIN', u'DEST', u'DISTANCE', u'AIRCRAFT_MFR']))
+cols_to_use = list(set(df.columns) - set([u'Unnamed: 0', u'ARR_DELAY', u'FL_DATE', u'UNIQUE_CARRIER', u'ORIGIN', u'DEST', u'DISTANCE', u'AIRCRAFT_MFR']))
 cols_to_use.sort()
 
 print 'using columns ' + str(cols_to_use)
