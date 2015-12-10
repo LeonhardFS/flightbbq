@@ -1,5 +1,7 @@
 # flightbbq
 
+see <http://leonhardfs.github.io/flightbbq/> with information about our project! 
+
 #### Downloading the data
 
 In order to download the zipped data from <http://www.transtats.bts.gov/>, run 
