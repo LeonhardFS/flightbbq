@@ -3,7 +3,7 @@
 
 # ### Linear Regression Model
 
-# In[136]:
+# In[203]:
 
 # import required modules for prediction tasks
 import numpy as np
@@ -27,27 +27,27 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import mean_absolute_error
 
 
-# In[137]:
+# In[204]:
 
 # first step is to load the actual data and exclude rows that are unnecessary
 print('loading data...')
-df = pd.read_csv('../cache/BigFlightTable.csv', nrows=None)#2000) # uncomment this for test purposes!
+df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
 
 
-# In[138]:
+# In[205]:
 
 print 'columns found: '
 print df.columns
 
 
-# In[139]:
+# In[206]:
 
 print 'generating additional features'
 df['HOUR_OF_ARR'] = df['ARR_TIME'].astype(int) / 10
 df['HOUR_OF_DEP'] = df['DEP_TIME'].astype(int) / 10
 
 
-# In[140]:
+# In[207]:
 
 # split data into numerical and categorical features
 print 'splitting into numerical/categorical features'
@@ -58,18 +58,18 @@ categoricalFeat = df[['MONTH', 'DAY_OF_MONTH', 'ORIGIN',
                     'UNIQUE_CARRIER', 'DAY_OF_WEEK', 'AIRCRAFT_MFR']].copy() # Categorical features
 
 
-# In[141]:
+# In[208]:
 
 # for the next step, all features need to be encoded as integers --> create lookup Tables!
 def transformToID(df, col):
-    vals = df[col].unique()
+    vals = np.sort(df[col].unique())
     LookupTable = dict(zip(vals, np.arange(len(vals))))
     for key in LookupTable.keys():
         df.loc[df[col] == key, col] = LookupTable[key]
     return LookupTable
 
 
-# In[142]:
+# In[209]:
 
 print 'indexing UNIQUE_CARRIER'
 carrierTable = transformToID(categoricalFeat, 'UNIQUE_CARRIER')
@@ -91,7 +91,7 @@ with open('../cache/originTable.json', 'wb') as outfile:
     json.dump(originTable, outfile)
 
 
-# In[143]:
+# In[210]:
 
 # Encode categorical variables as binary ones
 print 'encoding categorical variables'
@@ -131,20 +131,29 @@ X_train[:, 0:num_numFeatures+1] = X_train_numericals
 X_test[:, 0:num_numFeatures+1] = X_test_numericals
 
 
-# In[144]:
+# In[211]:
 
 # stochastic gradient based ridge regression
-SGD_params = {'alpha': 10.0 ** -np.arange(1,8)}
-SGD_model = GridSearchCV(SGDRegressor(random_state = 42, verbose=1),                          SGD_params, scoring = 'mean_absolute_error', cv = 4) # cross validate 4 times
+#SGD_params = {'alpha': 10.0 ** -np.arange(1,8)}
+SGD_params = {'alpha': 10.0 ** -6}
+SGD_model = GridSearchCV(SGDRegressor(random_state = 42, verbose=1, n_iter=10),                          SGD_params, scoring = 'mean_absolute_error', cv = 4) # cross validate 4 times
 
 
-# In[145]:
+# In[213]:
 
 # train the model, this might take some time...
 SGD_model.fit(X_train, y_train)
 
+# save model to file
+print 'saving model'
+with open('../cache/model.csv', 'wb') as f:
+    f.write(str(SGD_model.best_estimator_.get_params()) + '\n')
+    f.write(str(SGD_model.best_estimator_.coef_) + '\n')
+    f.write(str(SGD_model.best_estimator_.intercept_) + '\n')
+print SGD_model.best_estimator_.coef_
 
-# In[146]:
+
+# In[214]:
 
 def rmse(y, y_pred):
     return np.sqrt(((y - y_pred)**2).mean())
@@ -153,3 +162,4 @@ print 'computing statistics:'
 y_pred = SGD_model.predict(X_test)
 print 'RMSE:' + str(rmse(y_test, y_pred))
 print 'MAS:' + str(mean_absolute_error(y_test, y_pred))
+
