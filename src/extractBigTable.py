@@ -160,7 +160,7 @@ def processData(rawData):
 bigdf = None
 ca_statistic = []
 
-years = ['2010', '2011', '2012', '2013', '2014']
+years = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014']
 months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 print('starting processing')
 for y in years:
@@ -181,5 +181,5 @@ for y in years:
         print '==> added entries: {ne}'.format(ne=df.count()[0])
         
 # save to csv
-bigdf.to_csv('../cache/Big5FlightTable.csv')
+bigdf.to_csv('../cache/Big10FlightTable.csv')
 
