@@ -14,7 +14,7 @@
 	RepeatAnimation = "true"
 	PlayTheSound = "true"
 	>
-	<!--<TextBlock PauseTextAnimation = "10">
+	<TextBlock PauseTextAnimation = "10">
 		<Line> </Line>		 
 		<Line>   </Line>
 		<Line>  </Line>
@@ -22,31 +22,24 @@
 		<Line>   </Line>
 		<Line>  </Line>
 	</TextBlock>
-	<TextBlock PauseTextAnimation = "2">
+	<TextBlock PauseTextAnimation = "7">
 		 <Line> Just in 2014:</Line>		 
 		 <Line>   </Line>
-		 <Line>    </Line>
-		 <Line>    </Line>
-		 <Line>           </Line>
-		 <Line>         </Line>
-	</TextBlock>
-	<TextBlock PauseTextAnimation = "2">
-		 <Line> Just in 2014:</Line>		 
-		 <Line>   </Line>
-		 <Line>    1,193,705 delayed flights</Line>
-		 <Line>   69,614,616 minutes waiting time</Line>
+		 <Line>            delayed flights</Line>
+		 <Line>            minutes waiting time</Line>		 
+		 <Line>            billion total costs</Line>
 		 <Line>       </Line>
 		 <Line>        </Line>
 	</TextBlock>
-	<TextBlock PauseTextAnimation = "6">
+	<TextBlock PauseTextAnimation = "8">
 		 <Line> Just in 2014:</Line>		 
 		 <Line>   </Line>
-		 <Line>    1,193,705 delayed flights</Line>
-		 <Line>   69,614,616 minutes waiting time</Line>
-		 <Line>          132 years</Line>
-		 <Line>        $32.9 billion total cost</Line>
+		 <Line>  1,193,705 delayed flights</Line>
+		 <Line> 69,614,616 minutes waiting time</Line>
+		 <Line>      $32.9 billion total costs</Line>
+		 <Line>           </Line>
 	</TextBlock>
-	-->
+	<!--
 	<TextBlock PauseTextAnimation = "7">
 		 <Line>08:20 B6906  chicago       in time</Line>
 		 <Line>08:33 AA292  boston        in time</Line>
@@ -71,6 +64,7 @@
 		 <Line>19:00 UA1233 NYC-LGA  chicago  4.2</Line>
 		 <Line>19:30 B6105  NYC-JFK  chicago 11.2</Line>
 	</TextBlock>
+	-->
 </Content>
 
 
