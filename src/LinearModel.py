@@ -32,8 +32,8 @@ modelDict = {}
 
 # first step is to load the actual data and exclude rows that are unnecessary
 print('loading data...')
-#df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
-df = pd.read_csv('../cache/BigFlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+#df = pd.read_csv('../cache/BigFlightTable.csv', nrows=None)#uncomment for test purposes 2000)
 #df = pd.read_csv('../cache/BigFlightTable.csv', nrows=2000)
 
 # In[205]:
