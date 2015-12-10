@@ -32,8 +32,9 @@ modelDict = {}
 
 # first step is to load the actual data and exclude rows that are unnecessary
 print('loading data...')
-df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=2000)#nrows=None)#uncomment for test purposes 2000)
-
+#df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+df = pd.read_csv('../cache/BigFlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+#df = pd.read_csv('../cache/BigFlightTable.csv', nrows=2000)
 
 # In[205]:
 
@@ -101,8 +102,26 @@ with open('../cache/model.json', 'wb') as f:
 
 # Encode categorical variables as binary ones
 print 'encoding categorical variables'
-encoder = OneHotEncoder() 
+#'MONTH'] = month
+#'DAY_OF_MONTH'] = day_of_month
+#'ORIGIN'] = origin
+#'DEST'] = dest
+#'HOUR_OF_ARR'] = hour_of_arr
+#'HOUR_OF_DEP'] = hour_of_dep
+#'UNIQUE_CARRIER'] = carrier
+#'DAY_OF_WEEK'] = day_of_week
+#'AIRCRAFT_MFR'] = mfr
+n_values = [13, 32, len(originTable.keys()) + 1, \
+len(destTable.keys()) + 1, int(2459 / 10) + 1, int(2459 / 10) + 1, \
+ len(carrierTable.keys()) + 1, 7, len(mfrTable.keys()) + 1]
+encoder = OneHotEncoder(n_values=n_values) 
 categoricals_encoded = encoder.fit_transform(categoricalFeat)
+
+# save encoder
+encoderDict = {}
+encoderDict['values'] = list(encoder.n_values_)
+encoderDict['indices'] = list(encoder.feature_indices_)
+modelDict['encoder'] = encoderDict
 
 # convert numerical features to sparse matrix
 numericals_sparse = sparse.csr_matrix(numericalFeat)
