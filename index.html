@@ -58,22 +58,28 @@
 
     <section id="main-slider">
         <div class="owl-carousel">
-            <div class="item" style="background-image: url(images/slider/bg1.jpg);">
+            <div class="item" style="background-image: url(images/slider/bg2.jpg);">
                 <div class="slider-inner">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6">                                
+                            <div class="col-sm-6">  
+                                <div class="carousel-content">    
+                                    <h2><span>Why</span> is my flight delayed?</h2>
+                                    <p>We explore some of the causes of flight delays, and the best and worst performing airlines and airports.</p>
+                                </div>                         
                             </div>
                         </div>
                     </div>
                 </div>
             </div><!--/.item-->
-             <div class="item" style="background-image: url(images/slider/bg2.jpg);">
+             <div class="item" style="background-image: url(images/slider/bg1.jpg);">
                 <div class="slider-inner">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="carousel-content">                                    
+                                <div class="carousel-content">    
+                                    <h2><span>32.9 billion</span> US Dollars</h2>
+                                    <p>Total economic losses from flight delays per year in the US.</p>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +91,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="carousel-content">                                    
+                                <div class="carousel-content">
+                                    <h2><span>69,614,616</span> million minutes</h2>
+                                    <p>Total extra time spent waiting at airports due to flight delays.</p>                         
                                 </div>
                             </div>
                         </div>
@@ -105,7 +113,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
                         <div class="team-img">
-                            <img class="img-responsive" src="images/team/01.jpg" alt="">
+                            <img class="img-responsive" src="images/team/leonhard.jpg" alt="">
                         </div>
                         <div class="team-info">
                             <h3>Leonhard</h3>
@@ -125,7 +133,7 @@
                 <div class="col-sm-6 col-md-3">
                     <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
                         <div class="team-img">
-                            <img class="img-responsive" src="images/team/03.jpg" alt="">
+                            <img class="img-responsive" src="images/team/david.jpg" alt="">
                         </div>
                         <div class="team-info">
                             <h3>David</h3>
@@ -161,11 +169,14 @@
                 <p class="text-left wow fadeInDown">
                     We are pursuing two objectives:
                     <ul class="text-left wow fadeInDown">
-                    <li><h4 class="media-heading">Predictive inference</h4> Our aim is to build a delay estimator. Inputs are the airline carrier, the departure airport, the destination airport, the time and date of the flight, weather, and other variables deemed relevant by a statistical analysis. Output is the expected delay. Thanks to the high volume of data, we might even achieve a probability density function for the delay. This would require statistical tools such as non-parametric kernel estimation, linear and nonlinear regressions. As for computations, the large amount of data would require to use cloud services such as Amazon Web Services.</li>
-
                     <li>
-                    <h4 class="media-heading">Explicative inference</h4> Understand what causes delays. Do some airports systematically generate delays independently of the company? What is the influence of seasonality? Is there a state factor? 
+                        <h4 class="media-heading">Explicative inference</h4> Explore some of the potential causes of delays. Do some airports systematically generate delays independently of the company? Are some airlines just less timely than other airlines? What is the influence of the time of day? Are some airports more prone to weather delays than others?
                     </li>
+                    <li>
+                        <h4 class="media-heading">Predictive inference</h4> Our aim is to build a delay estimator. Inputs are the airline carrier, the departure airport, the destination airport, the time and date of the flight, weather, and other variables deemed relevant by a statistical analysis. Output is the expected delay. Thanks to the high volume of data, we might even achieve a probability density function for the delay. This would require statistical tools such as non-parametric kernel estimation, linear and nonlinear regressions.
+                    </li>
+
+                    
 
                 </p>
             </div>            
@@ -181,7 +192,7 @@
                     Since 1987 the U.S. Department of Transportation (US DOT) collects a huge amount of domestic flight data. This dataset, containing many different features (e.g. timestamp, origin, destination, airline, delays, etc.), is publicly available on <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236" target="_blank">their website</a>. The tool on their website allows for downloading a customized dataset based on selected features and a specific time period. Each month there are more than 400,000 recorded flights, so we have to deal with very big datasets.
                 </p>
                 <p class="text-left wow fadeInDown">
-                    For this project, we decided to focus mostly on the 2014 data since otherwise the dataset was just far too large. We were also able to connect this dataset with external weather data that affects flight delays.
+                    For this project, we decided to focus mostly on the 2014 data since otherwise the dataset was just far too large. We were also able to connect this dataset with external weather data.
                 </p>
             </div>            
         </div>
@@ -341,6 +352,17 @@
 
                 <div class="portfolio-item particular">
                     <div class="portfolio-item-inner">
+                        <img class="img-responsive" src="images/results/delay_by_month.png" alt="">
+                        <div class="portfolio-info">
+                            <h3>Average delay by month</h3>
+                            By departure and arrival delay
+                            <a class="preview" href="images/results/delay_by_month.png" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item particular">
+                    <div class="portfolio-item-inner">
                         <img class="img-responsive" src="images/results/weather_delay.png" alt="">
                         <div class="portfolio-info">
                             <h3>Airports with high % weather delay</h3>
@@ -371,13 +393,18 @@
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
+               
             </div>
         
         <div class="divider"></div>
+        <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Interactive delay map</h2>
+                <p class="text-center wow fadeInDown">This is an interactive map of the USA which contains information on flight delays.</p>
+            </div>
 
         <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
         <div class="row text-center col-md-8 col-xs-6">
-        <div class='tableauPlaceholder' style='width: 982px; height: 742px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63XCXHXQ5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='982' height='742' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='path' value='shared&#47;63XCXHXQ5' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;63&#47;63XCXHXQ5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>
+        <div class='tableauPlaceholder' style='width: 982px; height: 742px;'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DelayVideo&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='982' height='742' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='path' value='views&#47;DelayVideo&#47;Dashboard1' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;DelayVideo&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>
         </div>
 
         </div><!--/.container-->
