@@ -116,7 +116,7 @@ getWeather(2015, 3, 10, airportcode)
 
 # lazy load dictionary
 weatherDict = {}
-weatherFile = os.path.join('..', 'cache', 'weather_data.json')
+weatherFile = os.path.join('..', 'data', 'weather_data.json')
 if file_exists(weatherFile):
     # load current dict from json to cache results
     with open(weatherFile) as infile:
