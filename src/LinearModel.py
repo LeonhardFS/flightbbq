@@ -32,9 +32,13 @@ modelDict = {}
 
 # first step is to load the actual data and exclude rows that are unnecessary
 print('loading data...')
-df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+# 2005-2014
+df = pd.read_csv('../cache/Big10FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+# 2010-2014
+#df = pd.read_csv('../cache/Big5FlightTable.csv', nrows=None)#uncomment for test purposes 2000)
+# only 2014
 #df = pd.read_csv('../cache/BigFlightTable.csv', nrows=None)#uncomment for test purposes 2000)
-#df = pd.read_csv('../cache/BigFlightTable.csv', nrows=2000)
+
 
 # In[205]:
 
@@ -161,7 +165,7 @@ X_test[:, 0:num_numFeatures+1] = X_test_numericals
 
 # stochastic gradient based ridge regression
 #SGD_params = {'alpha': 10.0 ** -np.arange(1,8)}
-SGD_params = {'alpha': 10.0 ** -np.arange(6,8)}
+SGD_params = {'alpha': 10.0 ** -np.arange(5,8)}
 SGD_model = GridSearchCV(SGDRegressor(random_state = 42, verbose=1, n_iter=10),                          SGD_params, scoring = 'mean_absolute_error', cv = 4) # cross validate 4 times
 
 
@@ -196,5 +200,5 @@ print 'MAS:' + str(MAS)
 
 modelDict['RMSE'] = RMSE
 modelDict['MAS'] = MAS
-with open('../cache/model.json', 'wb') as f:
+with open('../cache/model10.json', 'wb') as f:
     json.dump(modelDict, f)

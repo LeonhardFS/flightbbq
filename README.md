@@ -1,10 +1,10 @@
-# flightbbq
+# Flightbbq
 
-see <http://leonhardfs.github.io/flightbbq/> with information about our project! 
+This is CS109 Final Project for flight delay prediction. See <http://leonhardfs.github.io/flightbbq/> with information about our project! 
 
 #### Downloading the data
 
-In order to download the zipped data from <http://www.transtats.bts.gov/>, run 
+In order to download the zipped data from <http://www.transtats.bts.gov/>, several scripts are stored in the src folder. I.e. run 
 
 ```
 python download_data.py
@@ -19,3 +19,9 @@ download_zip_files(dates, urldict, cache_path)
 ```
 
 As retrieving the file urls takes some time, they are preparsed into a dict where keys adressing year/month are encoded as "201402" for the file url of 2014/02.
+
+#### Process notebook
+The process notebook has been divided into four parts which are accessible from the root directory. Computational heavy scripts reside in the `src` directory. Furthermore, data has been included in the repo for easier access. In `results` two fitted linear regression models over ~3M, ~15M entries respectively are located.
+
+---
+(c) 2015 Granet, Middelbeck, Lei, Spiegelberg
