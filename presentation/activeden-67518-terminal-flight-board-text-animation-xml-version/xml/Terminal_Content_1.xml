@@ -13,7 +13,7 @@
 	OptionalBackgroundColor = "0xFFFFFF"
 	RepeatAnimation = "true"
 	PlayTheSound = "true"
-	>
+	><!--
 	<TextBlock PauseTextAnimation = "10">
 		<Line> </Line>		 
 		<Line>   </Line>
@@ -39,7 +39,7 @@
 		 <Line>      $32.9 billion total costs</Line>
 		 <Line>           </Line>
 	</TextBlock>
-	<!--
+	-->
 	<TextBlock PauseTextAnimation = "7">
 		 <Line>08:20 B6906  chicago       in time</Line>
 		 <Line>08:33 AA292  boston        in time</Line>
@@ -50,19 +50,19 @@
 	</TextBlock>
 	<TextBlock PauseTextAnimation = "10">
 		 <Line>08:30 B6905  NYC-JFK  chicago  </Line>
-		 <Line>14:00 UA224  NYC-EWR  chicago  </Line>
-		 <Line>17:10 AA199  NYC-JFK  chicago  </Line>
-		 <Line>18:45 AA359  NYC-LGA  chicago  </Line>
-		 <Line>19:00 UA1233 NYC-LGA  chicago  </Line>
-		 <Line>19:30 B6105  NYC-JFK  chicago  </Line>
+		 <Line>12:27 UA1764 NYC-LGA  chicago  </Line>
+		 <Line>13:04 WN333  NYC-LGA  chicago  </Line>
+		 <Line>19:10 UA1233 NYC-LGA  chicago </Line>
+		 <Line>20:32 B6105  NYC-JFK  chicago </Line>		 
+		 <Line>21:51 WN1272 NYC-LGA  chicago </Line>
 	</TextBlock>
 	<TextBlock PauseTextAnimation = "7">
-		 <Line>08:30 B6905  NYC-JFK  chicago 15.2</Line>
-		 <Line>14:00 UA224  NYC-EWR  chicago  9.1</Line>
-		 <Line>17:10 AA199  NYC-JFK  chicago 30.5</Line>
-		 <Line>18:45 AA359  NYC-LGA  chicago 45.2</Line>
-		 <Line>19:00 UA1233 NYC-LGA  chicago  4.2</Line>
-		 <Line>19:30 B6105  NYC-JFK  chicago 11.2</Line>
+		 <Line>08:30 B6905  NYC-JFK  chicago  8.8</Line>
+		 <Line>12:27 UA1764 NYC-LGA  chicago  9.1</Line>
+		 <Line>13:04 WN333  NYC-LGA  chicago  7.8</Line>
+		 <Line>19:10 UA1233 NYC-LGA  chicago 18.3</Line>
+		 <Line>20:32 B6105  NYC-JFK  chicago 26.2</Line>		 
+		 <Line>21:51 WN1272 NYC-LGA  chicago 21.2</Line>
 	</TextBlock>
 	-->
 </Content>
