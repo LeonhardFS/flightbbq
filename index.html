@@ -204,9 +204,9 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Data</h2>
+                  
+                    <img src="images/DataSources.png" align="center">
                 <p class="text-left wow fadeInDown">
-                    
-                    <img src="images/DataSources.png" align="left">
                     <dt>We used four different data sources</dt> 
                     <p>1. The official flight database for every domestic flight in the US </p>
 
@@ -223,10 +223,10 @@
                     For this project, we decided to focus mostly on the 2014 data since otherwise the dataset was just far too large. We were also able to connect this dataset with external weather data.
                 </p>
                 <p class="text-left wow fadeInDown">
-                    Many of us have experienced it before: a flight is delayed because there are some lastminute repairs or other problems with the aircraft. We are curious if the manufacturer or the age of the aircraft influences the probability of delays. Therefore we need more detailed data about the flight. The flight's tail number is comparable to car license plates and helps us to identify the manufacturer and age of the airplane.We can get this information from the Federal Aviation Administration. This institution has a database of tail numbers (so called N-Numbers) for each aircraft in the US and also publishes other datasets with information about the respective aircraft (e.g. manufacturer of turbines, owner, etc.). We downloaded the database from the following website: <a href="http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/" target="_blank">their website</a>.
+                    Many of us have experienced it before: a flight is delayed because there are some lastminute repairs or other problems with the aircraft. We are curious if the manufacturer or the age of the aircraft influences the probability of delays. Therefore we need more detailed data about the flight. The flight's tail number is comparable to car license plates and helps us to identify the manufacturer and age of the airplane.We can get this information from the Federal Aviation Administration. This institution has a database of tail numbers (so called N-Numbers) for each aircraft in the US and also publishes other datasets with information about the respective aircraft (e.g. manufacturer of turbines, owner, etc.). We downloaded the database from <a href="http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/" target="_blank">their website</a>.
                 </p>
                 <p class="text-left wow fadeInDown">                    
-                    In addition, we need the exact geolocations for the airports in the dataset, for example to get good visualizations using Tableau Public or other maps. Furthermore, airport names would be helpful to interpret the data (the original dataset just contains the short IATA abbreviations). This data can be easily found online as csvs (see <a href="http://openflights.org/data.html" target="_blank">their website</a>). It can be found in the folder data.
+                    In addition, we need the exact geolocations for the airports in the dataset, for example to get good visualizations using Tableau Public or other maps. Furthermore, airport names would be helpful to interpret the data (the original dataset just contains the short IATA abbreviations). This data can be easily found online as csvs (see <a href="http://openflights.org/data.html" target="_blank">their website</a>).
                 </p>
                 <p class="text-left wow fadeInDown">                    
                     A natural cause for many delays seems to be the weather. We decided to include weather data additionally in our analysis. Therefore, we wanted to get historical weather information of the airports. Unfortunately, when it comes to weather data, we couldn't find any public available sources that provide a suitable (free) dataset. However, Wunderground provides a webinterface allowing to query specific IATA / IAOC codes of airports (see i.e. <a href="http://www.wunderground.com/history/airport/EDDF/2005/10/3/DailyHistory.html?req_city=Frankfurt+%2F+Main&req_state=&req_statename=Germany&reqdb.zip=00000&reqdb.magic=5&reqdb.wmo=10637" target="_blank">their website</a>). Writing a script allowed us to get historic data of individual airports.
