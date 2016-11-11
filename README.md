@@ -2,6 +2,8 @@
 
 This is CS109 Final Project for flight delay prediction. See <http://leonhardfs.github.io/flightbbq/> with information about our project! 
 
+[![Why Is My Flight Delayed?](https://i.ytimg.com/vi/o10D6I7I7IA/hqdefault.jpg)](https://www.youtube.com/embed/o10D6I7I7IA?autoplay=1 "Why Is My Flight Delayed?")
+
 #### Downloading the data
 
 In order to download the zipped data from <http://www.transtats.bts.gov/>, several scripts are stored in the src folder. I.e. run 
